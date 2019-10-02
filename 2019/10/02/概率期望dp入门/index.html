@@ -104,7 +104,7 @@
 <meta property="og:site_name" content="Syq&#39;s blog">
 <meta property="og:description" content="简单题. T1 A - Race to 1 Again题意数$N$每次会随机变成它的一个因子$(1…N)$,直到变成$1$后停止.求$N$变为$1$的期望步数. 题解设$dp[i]$表示$i$变为$1$的期望步数.初始有$dp[0]=0$.则$$dp[i]=\frac {dp[a_1]+dp[a_2]+\cdots+dp[a_m]}{m} +1$$ $a$数组表示$i$的因子,$m$为$i$因子的">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-10-02T08:06:26.929Z">
+<meta property="og:updated_time" content="2019-10-02T08:14:16.556Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="概率期望dp入门">
 <meta name="twitter:description" content="简单题. T1 A - Race to 1 Again题意数$N$每次会随机变成它的一个因子$(1…N)$,直到变成$1$后停止.求$N$变为$1$的期望步数. 题解设$dp[i]$表示$i$变为$1$的期望步数.初始有$dp[0]=0$.则$$dp[i]=\frac {dp[a_1]+dp[a_2]+\cdots+dp[a_m]}{m} +1$$ $a$数组表示$i$的因子,$m$为$i$因子的">
@@ -387,7 +387,7 @@
                 
               
 
-              <time title="创建时间：2019-10-02 11:22:20 / 修改时间：16:06:26" itemprop="dateCreated datePublished" datetime="2019-10-02T11:22:20+08:00">2019-10-02</time>
+              <time title="创建时间：2019-10-02 11:22:20 / 修改时间：16:14:16" itemprop="dateCreated datePublished" datetime="2019-10-02T11:22:20+08:00">2019-10-02</time>
             
 
             
@@ -497,6 +497,7 @@
 <p>分析:$ans_i=p* ( x_{i-1} +1)^ 2+ (1-p)* ans_{i-1}=ans_{i-1}+ (2* x_{i-1} +1)* p $ 由于$(ans_{i-1} ={x_{i-1}}^2)$</p>
 <p>或者是:$ans_i=ans_{i-1}+ (x_{i-1}+ 1)^ 2 - x_{i-1}^ 2$</p>
 <p>$$x_i=(x_{i-1}+ 1) *p$$</p>
+<p>二倍经验:<a href="https://www.luogu.org/problem/CF235B" target="_blank" rel="noopener">CF235B Let’s Play Osu!</a></p>
 <h3 id="代码-1"><a href="#代码-1" class="headerlink" title="代码"></a>代码</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> N = <span class="number">3e5</span>+<span class="number">7</span>;</span><br><span class="line"><span class="keyword">long</span> <span class="keyword">double</span> ans, p, x;</span><br><span class="line"><span class="keyword">int</span> n;</span><br><span class="line"><span class="keyword">char</span> s[N];</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="built_in">scanf</span>(<span class="string">"%d%s"</span>, &amp;n, s+<span class="number">1</span>);</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=n;++i)&#123;</span><br><span class="line">		<span class="keyword">if</span> (s[i]==<span class="string">'o'</span>) p=<span class="number">1.0</span>;</span><br><span class="line">		<span class="keyword">else</span> <span class="keyword">if</span> (s[i]==<span class="string">'x'</span>) p=<span class="number">0</span>;</span><br><span class="line">		<span class="keyword">else</span> p=<span class="number">0.5</span>;</span><br><span class="line">		ans+=(<span class="number">2</span>*x+<span class="number">1.0</span>)*p;</span><br><span class="line">		x=(x+<span class="number">1.0</span>)*p;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"%.4Lf\n"</span>, ans);</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <h2 id="T3-P1654-OSU"><a href="#T3-P1654-OSU" class="headerlink" title="T3 P1654 OSU!"></a>T3 <a href="https://www.luogu.org/problem/P1654" target="_blank" rel="noopener">P1654 OSU!</a></h2><h3 id="题意-2"><a href="#题意-2" class="headerlink" title="题意"></a>题意</h3><p>在一个序列中,位置$i$为$1$或$0$,为$1$的概率为$p_i$.分数为所有连续段$1$长度的三次方.求期望分数.</p>
