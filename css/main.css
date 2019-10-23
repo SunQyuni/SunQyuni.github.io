@@ -1878,7 +1878,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #f4018c;
+  background: #8eb8ff;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -3183,7 +3183,7 @@ ul.breadcrumb li+li:last-child {
 }
 @media screen and (min-width: 1200px) {
   body {
-    background-image: url("/images/blhx_queen.jpg");
+    background-image: url("https://i.loli.net/2019/10/24/YcOifsFvVSmCA3w.jpg");
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-position: 50% 50%;
